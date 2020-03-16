@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Visualizing Weather</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../styles.css">  
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="jumbotron">
+          <h1>Mission to Mars</h1>
+          <button type="button" class="btn btn-primary text-center">
+            Scrape New Data
+         </button>
+      </div>
+
+    <div class="container">
+        <section class="row">
+          <div class="col-12">
+            <div class="description-content">
+              <h2 class="description-header">Latest Mars News</h2>
+              <h4>{{data.latestNewsTitle}}</h4>
+              <p>{{data.latestNewsParagraph}}</p>
+            </div>
+        </div>
+
+    <div class="container">
+        <section class = 'row'>
+            <div class="col-8">
+              <h4>Featured Mars Image</h4> 
+              <img src="..." class="img-fluid" alt="image">
+            </div>
+ 
+            <div class="card">
+              <h4>Latest Mars Tweet</h4> 
+              <p>tweet about mars here</p>
+            </div>
+
+            <div class="col-4">
+                <h4>Mars Facts</h4> 
+                <p>mars dataframe goes here</p>
+              </div>
+
+        </section>
+    </div>
+
+    
+</body>
+
+</html>
