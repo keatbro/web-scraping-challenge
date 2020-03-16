@@ -5,28 +5,23 @@ import pymongo
 # Configure Flask app
 app = Flask(__name__)
 
-# Connect to MongoDB
-conn = 'mongodb://localhost:27017'
-client = pymongo.MongoClient(conn)
+client = pymongo.MongoClient("mongodb://localhost:27017/")
+db = client['mars_db']
+web_data = db['data']
 
-# Create database
-db = client.mars_db
-
-# Set routes for app
 @app.route('/')
 def index():
-    data = db.data_table.find() 
-    return render_template("index.html", dataDict = data)
+    dataDict = scrape_mars.scrape()
+    web_data.insert_one(dataDict)
+    return render_template('index.html', data=dataDict)
 
-@app.route('/scrapenewdata')
-def scrape():
+@app.route("/scrape")
+def scraper():
+    mars_data = mongo.db.mars_data
+    newMarsData = scrape_mars.scrape()
+    mars_data.update({}, newMarsData, upsert=True)
+    return redirect("/", code=302)
 
-    # Delete old data
-    db.data_table.drop()
-
-    data = scrape_mars.scrape()
-    db.data_table.insert_one(data)
-    return redirect("/")
 
 if __name__ == '__main__':
    app.run()

@@ -118,6 +118,6 @@ def scrape():
         'cerberus' : hem1,
         'schiaparelli' : hem2,
         'syrtis' : hem3,
-        'Valles' : hem4
+        'valles' : hem4
     }
     return dataDict
